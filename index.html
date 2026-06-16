@@ -18,14 +18,12 @@
       color: #fff;
       padding: 2rem 2rem 1.5rem;
     }
-
     header h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
     header p  { font-size: 0.95rem; color: #aab; }
 
     main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
 
     section { margin-bottom: 3rem; }
-
     section h2 {
       font-size: 1.2rem;
       font-weight: 600;
@@ -50,34 +48,30 @@
       display: flex;
       flex-direction: column;
     }
-
     .card video {
       width: 100%;
       display: block;
       background: #000;
     }
-
     .card .label {
       padding: 0.6rem 0.8rem 0.4rem;
       font-size: 0.9rem;
       font-weight: 600;
       text-transform: capitalize;
-      letter-spacing: 0.02em;
     }
 
-    /* Upload section */
+    /* Upload area */
     .upload-section {
       padding: 0.5rem 0.8rem 0.75rem;
       border-top: 1px solid #f0f0f0;
+      margin-top: auto;
+    }
+    .upload-section form {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      flex-wrap: wrap;
-      margin-top: auto;
     }
-
     .file-input { display: none; }
-
     .file-label {
       font-size: 0.76rem;
       padding: 0.28rem 0.55rem;
@@ -85,14 +79,13 @@
       border: 1px solid #ddd;
       border-radius: 4px;
       cursor: pointer;
-      max-width: 130px;
+      flex: 1;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      flex: 1;
     }
     .file-label:hover { background: #e4e4e4; }
-
     .upload-btn {
       font-size: 0.76rem;
       padding: 0.28rem 0.65rem;
@@ -102,21 +95,19 @@
       border-radius: 4px;
       cursor: pointer;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .upload-btn:hover:not(:disabled) { background: #2d2d50; }
     .upload-btn:disabled { opacity: 0.45; cursor: not-allowed; }
-
     .upload-status {
       font-size: 0.73rem;
-      width: 100%;
-      margin-top: 0.15rem;
+      margin-top: 0.25rem;
       min-height: 1em;
     }
     .upload-status.success { color: #1a6640; }
     .upload-status.error   { color: #b33; }
     .upload-status.loading { color: #555; }
 
-    /* Badges */
     .badge {
       display: inline-block;
       font-size: 0.7rem;
@@ -139,289 +130,436 @@
 
 <main>
 
-  <!-- ── Section 1: NZ signs ──────────────────────────────── -->
+  <!-- ── NZ signs ────────────────────────────────────────── -->
   <section>
     <h2>NZSL Data Collection <span class="badge badge-nz">NZ</span></h2>
     <div class="grid">
 
-      <div class="card" data-word="Alarm" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/alarm.mp4" type="video/mp4" />
         </video>
         <div class="label">Alarm</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f1" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f1" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Alarm" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Burn" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/burn.mp4" type="video/mp4" />
         </video>
         <div class="label">Burn</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f2" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f2" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Burn" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Bus" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/bus.mp4" type="video/mp4" />
         </video>
         <div class="label">Bus</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f3" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f3" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Bus" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Cancel" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/cancel.mp4" type="video/mp4" />
         </video>
         <div class="label">Cancel</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f4" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f4" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Cancel" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Delay" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/delay.mp4" type="video/mp4" />
         </video>
         <div class="label">Delay</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f5" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f5" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Delay" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Exit" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/exit.mp4" type="video/mp4" />
         </video>
         <div class="label">Exit</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f6" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f6" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Exit" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Help" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/help.mp4" type="video/mp4" />
         </video>
         <div class="label">Help</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f7" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f7" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Help" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Leave" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/leave.mp4" type="video/mp4" />
         </video>
         <div class="label">Leave</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f8" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f8" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Leave" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Pay" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/pay.mp4" type="video/mp4" />
         </video>
         <div class="label">Pay</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f9" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f9" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Pay" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Wheelchair" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/wheelchair.mp4" type="video/mp4" />
         </video>
         <div class="label">Wheelchair</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f10" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f10" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Wheelchair" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="When" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/when.mp4" type="video/mp4" />
         </video>
         <div class="label">When</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f11" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f11" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – When" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Where" data-group="NZ">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/nz/where.mp4" type="video/mp4" />
         </video>
         <div class="label">Where</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f12" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f12" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] NZ – Where" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── Section 2: Raw reference signs ───────────────────── -->
+  <!-- ── Raw reference signs ──────────────────────────────── -->
   <section>
     <h2>Reference Signs <span class="badge badge-ref">RAW</span></h2>
     <div class="grid">
 
-      <div class="card" data-word="Arrive" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/arrive.mp4" type="video/mp4" />
         </video>
         <div class="label">Arrive</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f13" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f13" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Arrive" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Bicycle" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/bicycle.mp4" type="video/mp4" />
         </video>
         <div class="label">Bicycle</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f14" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f14" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Bicycle" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Platform" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/platform.mp4" type="video/mp4" />
         </video>
         <div class="label">Platform</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f15" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f15" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Platform" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Station" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/station.mp4" type="video/mp4" />
         </video>
         <div class="label">Station</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f16" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f16" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Station" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Thank You" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/thank_you.mp4" type="video/mp4" />
         </video>
         <div class="label">Thank You</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f17" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f17" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Thank You" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Hello" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/hello.mp4" type="video/mp4" />
         </video>
         <div class="label">Hello</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f18" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f18" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Hello" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Bathroom" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/bathroom.mp4" type="video/mp4" />
         </video>
         <div class="label">Bathroom</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f19" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f19" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Bathroom" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Help" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/help.mp4" type="video/mp4" />
         </video>
         <div class="label">Help</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f20" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f20" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Help" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
-      <div class="card" data-word="Ticket" data-group="RAW">
+      <div class="card">
         <video controls loop muted playsinline preload="metadata">
           <source src="videos/raw/ticket.mp4" type="video/mp4" />
         </video>
         <div class="label">Ticket</div>
         <div class="upload-section">
-          <input type="file" accept="video/*" class="file-input" />
-          <label class="file-label">Choose video</label>
-          <button class="upload-btn" onclick="uploadVideo(this)">Send</button>
-          <span class="upload-status"></span>
+          <iframe name="f21" style="display:none"></iframe>
+          <form action="https://formsubmit.co/rivergao@foxmail.com"
+                method="POST" enctype="multipart/form-data"
+                target="f21" onsubmit="return handleSubmit(this)">
+            <input type="hidden" name="_subject" value="[NZSL] RAW – Ticket" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="file" name="attachment" accept="video/*" class="file-input" />
+            <label class="file-label">Choose video</label>
+            <button type="submit" class="upload-btn">Send</button>
+          </form>
+          <div class="upload-status"></div>
         </div>
       </div>
 
@@ -431,8 +569,7 @@
 </main>
 
 <script>
-  // Wire up each file input so clicking the label opens the picker
-  // and updates the label text with the chosen filename.
+  // Make each file-label open the hidden file input
   document.querySelectorAll('.upload-section').forEach(section => {
     const input  = section.querySelector('.file-input');
     const label  = section.querySelector('.file-label');
@@ -447,60 +584,43 @@
     });
   });
 
-  async function uploadVideo(btn) {
-    const card   = btn.closest('.card');
-    const word   = card.dataset.word;
-    const group  = card.dataset.group;
-    const section = card.querySelector('.upload-section');
-    const input  = section.querySelector('.file-input');
-    const label  = section.querySelector('.file-label');
-    const status = section.querySelector('.upload-status');
-    const file   = input.files[0];
+  function handleSubmit(form) {
+    const section = form.closest('.upload-section');
+    const input   = form.querySelector('.file-input');
+    const label   = form.querySelector('.file-label');
+    const btn     = form.querySelector('.upload-btn');
+    const status  = section.querySelector('.upload-status');
+    const file    = input.files[0];
 
     if (!file) {
       status.textContent = 'Please choose a video file first.';
       status.className = 'upload-status error';
-      return;
+      return false;
     }
 
     if (file.size > 10 * 1024 * 1024) {
       status.textContent = 'File too large (max 10 MB).';
       status.className = 'upload-status error';
-      return;
+      return false;
     }
 
     btn.disabled = true;
     status.textContent = 'Sending…';
     status.className = 'upload-status loading';
 
-    const formData = new FormData();
-    formData.append('_subject', `[NZSL Upload] ${group} – ${word}`);
-    formData.append('sign_word', word);
-    formData.append('group', group);
-    formData.append('attachment', file, file.name);
-    formData.append('_captcha', 'false');
-
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/rivergao@foxmail.com', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
-      });
-      const data = await res.json();
-      if (String(data.success) === 'true') {
-        status.textContent = '✓ Sent successfully!';
-        status.className = 'upload-status success';
-        input.value = '';
-        label.textContent = 'Choose video';
-      } else {
-        throw new Error('API returned failure');
-      }
-    } catch {
-      status.textContent = '✗ Failed — please try again.';
-      status.className = 'upload-status error';
-    } finally {
+    // Detect completion via the hidden iframe's load event
+    const frame = document.querySelector(`iframe[name="${form.target}"]`);
+    const onLoad = () => {
+      status.textContent = '✓ Sent! Check your email.';
+      status.className = 'upload-status success';
+      input.value = '';
+      label.textContent = 'Choose video';
       btn.disabled = false;
-    }
+      frame.removeEventListener('load', onLoad);
+    };
+    frame.addEventListener('load', onLoad);
+
+    return true; // allow the form to submit
   }
 </script>
 
